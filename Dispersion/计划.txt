@@ -1,0 +1,15 @@
+1. 统一采用k作为输入参数    ——  √
+2. 解耦的色散关系采用可变输出，out(1)是色散关系，out(2)是各组分的贡献(不包括真空的贡献)
+    ——  Brambilla中真空的贡献是什么？
+3. 求导自选，比如只计算对w和k_para的导数
+4. 将等离子体色散函数分离    ——  √
+5. 各个模块采用setPath调用色散关系函数    ——  √
+6. 求和采用两点爆破：从0开始和从最接近的回旋共振开始
+    ——  已完成：KhiMaxwell, DBram1976, KhiwMaxwell, DwBram1976, 
+    ——  已测试：KhiMaxwell, DBram1976
+    ——  注：DBram1976直接从回旋共振处开始求和
+7. 调用时返回fzero计算成功与否    ——  √
+8. 向量化计算
+    ——  已完成：ColdESKperp, ColdEMKperp
+    ——  已测试：ColdESKperp, ColdEMKperp
+9. 在Maxwell介电张量中，k_para = 0等极限情况会出现奇点，考虑解决方案

@@ -1,0 +1,30 @@
+genray.f
+	call drkgs2(prmt, u, deru, ndim, ihlf, rside1, outpt, aux, i_output)：Runge-Kutta method to solve a ray-trace
+		outpt：something like a function handle to redirect subroutine outp -> outpt in subroutine drkgs2
+		rside1：something like a function handle to redirect subroutine fct -> rside1 in subroutine drkgs2
+	subroutine drkgs2：------------------------------------------------------------------------------------------------------------------rk_new.f
+		call fct (actually rside1)：calculate the RHS of the differential eqns
+			subroutine rside1：---------------------------------------------------------------------------------------------rside1.f
+				function gamma1：calculate the angle between k & B
+				function hamilt1：calculate D, DISPERSION RELATIONS ARE SELECTED HERE
+					function dhot_sum：calculate D = ReD + ImD
+						!Note : In the definition of this function, word "function" & "dhot_sum" are in different lines
+						call DHOT_s：calculate susceptibility tensor for a single specie--------------forest.f
+							!HERE THE MAXIMUM HARMONIC IS SET AS 30, POSSIBLY SMALL FOR IONS
+		call drkgs0：One step of Runge-Kutta method
+		call outp（actually outpt）：calculate absorption and check whether the ray should stop
+			subroutine outpt：----------------------------------------------------------------------------------------------output.f
+				*Check OXB mode conversion, resonance, etc
+				*Correct (perhaps n_perp) to keep the hamiltonian |D| small
+				*Plot hot and cold dispersion function
+				*Prepare data at selected output time steps
+				*Calculate reflection and scattering
+				call prep3d(t,u,deru,iraystop)：Calculate damping--------------------------------------------------prep3d.f
+					calculate absorption (iabsorp is used here)
+						iabsorp.eq.2：LHW absorption (Bonoli1986)
+							HERE COMES THE FIRST ERROR：x_oi=cvac/(sqrt2*cnpar*vi)
+					calculate dielectric tensor
+					calculate energy flux
+					calculate group velocity
+					calculate collisional damping
+					calculate Ray energy

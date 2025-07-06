@@ -1,0 +1,76 @@
+function varargout = DwEMCold(w, k_para, k_perp, B, Ps)
+% P : struct with elements q, m, n0.
+% w, k_para, B, Ps(*).n0 can be arrays (for safety, of the same size).
+    %--------------Determine array size--------------%
+    Size = size(w);
+    num = numel(w);
+    if numel(k_para) > num
+        Size = size(k_para);
+        num = numel(k_para);
+    end
+    if numel(B) > num
+        Size = size(B);
+        num = numel(B);
+    end
+    if numel(Ps(1).n0) > num
+        Size = size(Ps(1).n0);
+        num = numel(Ps(1).n0);
+    end
+    %--------------Refractive Index--------------%
+    c = 299792458;
+    N_para = k_para.*c./w;
+    N_perp = k_perp.*c./w;
+    %--------------Calculate S, D, P--------------%
+    Sds = cell(size(Ps));
+    Dds = cell(size(Ps));
+    Pds = cell(size(Ps));
+    DwSds = cell(size(Ps));
+    DwDds = cell(size(Ps));
+    DwPds = cell(size(Ps));
+    S = zeros(Size);
+    D = zeros(Size);
+    P = zeros(Size);
+    DwS = zeros(Size);
+    DwD = zeros(Size);
+    DwP = zeros(Size);
+    for k = 1 : numel(Ps)
+        [Sds{k}, Dds{k}, Pds{k}, DwSds{k}, DwDds{k}, DwPds{k}] = KhiEMCold(Ps(k), B, w);
+        S = S + Sds{k};
+        D = D + Dds{k};
+        P = P + Pds{k};
+        DwS = DwS + DwSds{k};
+        DwD = DwD + DwDds{k};
+        DwP = DwP + DwPds{k};
+    end
+    S = S + 1;
+    P = P + 1;
+    %--------------Calculate P4, P2, P0--------------%
+    P4 = S;
+    P2 = (N_para.^2 - S).*(S + P) + D.^2;
+    P0 = P.*((N_para.^2 - S).^2 - D.^2);
+    DwP4 = DwS;
+    DwP2 = (-2./w.*N_para.^2 - DwS).*(S + P) + (N_para.^2 - S).*(DwS + DwP) + 2*D.*DwD;
+    DwP0 = DwP.*((N_para.^2 - S).^2 - D.^2) + P.*2.*(N_para.^2 - S).*(-2./w.*N_para.^2 - DwS) ...
+             - P.*2.*D.*DwD;
+
+    %====================Calculate D====================%
+    D = P4.*N_perp.^4 + P2.*N_perp.^2 + P0;
+    DwD = DwP4.*N_perp.^4 + DwP2.*N_perp.^2 + DwP0 - 4./w.*P4.*N_perp.^4 - 2./w.*P2.*N_perp.^2;
+
+    varargout{1} = D;
+    varargout{2} = DwD;
+end
+
+function [Sd, Dd, Pd, DwSd, DwDd, DwPd] = KhiEMCold(P, B, w)
+%P = [m; n0; q]
+    % epsilon_0 = 8.854187817e-12;
+    e = 1.602176565e-19;
+    wc = P.q*e.*B./P.m;
+    wp2 = 2.899158904791503e-27*P.q.^2.*P.n0./P.m;
+    Sd = - wp2./(w.^2 - wc.^2);
+    Dd = - Sd.*wc./w;
+    Pd = - wp2./w.^2;
+    DwSd = wp2./(w.^2 - wc.^2).^2.*2.*w;
+    DwDd = - Dd./w - DwSd.*wc./w;
+    DwPd = -(2./w).*Pd;
+end

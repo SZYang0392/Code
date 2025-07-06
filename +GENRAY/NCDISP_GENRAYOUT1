@@ -1,0 +1,882 @@
+>> ncdisp('genray_CFETR_4.6G_8_Bonoli_1.nc')
+Source:
+           E:\课题\LHW_Ion\Brambilla1976\CFETR_new\genray_jlchen_m1_10\Trial\genray_CFETR_4.6G_8_Bonoli_1.nc
+Format:
+           classic
+Global Attributes:
+           title = 'netCDF file of ray data from GENRAY version: genray_v10.8_141024'
+Dimensions:
+           neltmax    = 284
+           nrays      = 8
+           two        = 2
+           nbulk      = 7
+           char8dim   = 8
+           char64dim  = 64
+           char128dim = 128
+           char256dim = 256
+           nbulkm     = 6
+           nxeqd      = 129
+           nyeqd      = 129
+           n_wall     = 90
+           i_two_id   = 2
+           nrho       = 201
+           nrhom      = 200
+           nfreq      = 1
+Variables:
+    version                    
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'GENRAY version number'
+    mnemonic                   
+           Size:       128x1
+           Dimensions: char128dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Mnemonic run identifier'
+    id                         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Disp relation identifier'
+    iabsorp                    
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Absorp calc identifier'
+    ieffic                     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Current drive calc identifier'
+    ion_absorption             
+           Size:       8x1
+           Dimensions: char8dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Switch on/off ion absorption at iabsorp=3,9,91,92'
+    refl_loss                  
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'fraction of power loss at each reflection'
+    iflux                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Flux calc, non-Westerhof-Tokman id'
+    ioxm                       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'wave mode indicator (1 - om, -1 - xm )'
+    ioxm_n_npar                
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'wave mode indicator: sign before square root to find  N(N_parallel)'
+    jwave                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Wave harmonic, for CD efficiency calc'
+    i_geom_optic               
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Integrate rays wrt (1)time,(2)dist'
+    istart                     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Ray launch type: 1,eccone; 2,grill, 3,OX in plasma'
+    ncone                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name0 = 'Number of rf source ray cones, istart=1'
+                       long_name1 = 'Each cone has (nray/ncone) launched rays'
+    ngrill                     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name0 = 'Number of rf source ray grills, istart=2,'
+                       long_name1 = ',nray/ngrill rays launched per grill istart=2,3'
+                       long_name2 = ',Each grill has (nray/ngrill) launched rays, istart=2,3'
+    ionetwo                    
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'if ionetwo=1 then calculate CD'
+    nray                       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of rays'
+    nharm                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'First harmonic number'
+    freqcy                     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Wave frequency'
+                       units     = 'Hz'
+    i_emission                 
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'emission switch: =0 now emission, =1 use emission calculations'
+    i_emission_spectrum        
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'emission spectrum switch: =0 no emission spectrum,   =1 use emission spectrum  calculations'
+    nrayelt                    
+           Size:       8x1
+           Dimensions: nrays
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of ray elements for each ray'
+    ws                         
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'poloidal distance along a ray'
+                       units     = 'cms'
+    seikon                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'eikonal'
+    spsi                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'normalized small radius=rho given by indexrho'
+    wr                         
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'major radius'
+                       units     = 'cms'
+    wphi                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'toroidal angle'
+                       units     = 'rad'
+    wz                         
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'vertical height'
+                       units     = 'cms'
+    w_theta_pol                
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'poloidal angle'
+                       units     = 'degree'
+    wnpar                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'parallel refractive index'
+    wnper                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'perpendicular refractive index'
+    delpwr                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'power in ray channel'
+                       units     = 'erg/sec'
+    sdpwr                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Ion collisionless absorption coeff (all species)'
+                       units     = '1/cms'
+    salphas                    
+           Size:       284x8x6
+           Dimensions: neltmax,nrays,nbulkm
+           Datatype:   double
+           Attributes:
+                       long_name = 'Ion collisionless absorption coeff (each species)'
+                       units     = '1/cms'
+    wdnpar                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'wdnpar'
+    cwexde                     
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex Ex/E Polarization'
+    cweyde                     
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex Ey/E Polarization'
+    cwezde                     
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex Ez/E Polarization'
+    fluxn                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'fluxn, Stix norm, |E|=1'
+                       units     = 'ergs/sec/cm^2'
+    sbtot                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Magnetic field strength'
+                       units     = 'gauss'
+    sene                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Density along ray'
+                       units     = 'particles/cm^3'
+    ste                        
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Temperature along ray'
+                       units     = 'keV'
+    szeff                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Zeff along ray'
+                       units     = 'dimensionless'
+    salphac                    
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Collisional damping wavenumber'
+                       units     = '1/cms'
+    salphal                    
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'Linear damping wavenumber'
+                       units     = '1/cms'
+    sb_r                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'B_r magnetic field component'
+                       units     = 'guass'
+    sb_z                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'B_z magnetic field component'
+                       units     = 'guass'
+    sb_phi                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'B_phi magnetic field component'
+                       units     = 'guass'
+    wn_r                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'N_r refractive index component'
+    wn_z                       
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'N_z refractive index component'
+    wn_phi                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'N_phi refractive index component'
+    vgr_r                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'vgroup_r normalized to c'
+    vgr_z                      
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'vgroup_z normalized to c'
+    vgr_phi                    
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'vgroup_phi normalized to c'
+    flux_z                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'flux_z normalized to c'
+    flux_r                     
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'flux_r normalized to c'
+    flux_phi                   
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'flux_phi normalized to c'
+    w_eff_nc                   
+           Size:       284x8
+           Dimensions: neltmax,nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'CD efficiency along a ray'
+                       units     = '(A/cm**2)/(erg/(sec*cm**3))'
+    eqdskin                    
+           Size:       256x1
+           Dimensions: char256dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Name of input eqdsk, for eqsource=eqdsk'
+    nbulk                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of Maxl plasma cmpts, electrons+ions'
+    dmas                       
+           Size:       7x1
+           Dimensions: nbulk
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma species mass: electrons, then ions'
+                       units     = 'Normalized to electron mass'
+    charge                     
+           Size:       7x1
+           Dimensions: nbulk
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma species charge: electrons, then ions'
+                       units     = 'Normalized to electronic charge'
+    w_tot_pow_absorb_at_refl_nc
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total power absorbed at reflections of all rays'
+                       units     = 'erg/sec'
+    nxeqd                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of r points'
+    nyeqd                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of z points'
+    eqdsk_r                    
+           Size:       129x1
+           Dimensions: nxeqd
+           Datatype:   double
+           Attributes:
+                       long_name = 'eqdsk r array '
+                       units     = 'm'
+    eqdsk_z                    
+           Size:       129x1
+           Dimensions: nyeqd
+           Datatype:   double
+           Attributes:
+                       long_name = 'eqdsk z array '
+                       units     = 'm'
+    eqdsk_psi                  
+           Size:       129x129
+           Dimensions: nxeqd,nyeqd
+           Datatype:   double
+           Attributes:
+                       long_name = 'eqdsk poloidal flux'
+                       units     = ' '
+    n_wall                     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of wall points'
+    max_limiters               
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of limiters'
+    r_wall                     
+           Size:       90x1
+           Dimensions: n_wall
+           Datatype:   double
+           Attributes:
+                       long_name = 'wall r coordinate'
+                       units     = 'm'
+    z_wall                     
+           Size:       90x1
+           Dimensions: n_wall
+           Datatype:   double
+           Attributes:
+                       long_name = 'wall z coordinate'
+                       units     = 'm'
+    z_starting                 
+           Size:       8x1
+           Dimensions: nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'z_starting'
+                       units     = 'm'
+    r_starting                 
+           Size:       8x1
+           Dimensions: nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'r_starting'
+                       units     = 'm'
+    phi_starting               
+           Size:       8x1
+           Dimensions: nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'phi_starting'
+                       units     = 'radian'
+    N_toroidal_starting        
+           Size:       8x1
+           Dimensions: nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'N_toroidal_starting'
+                       units     = 'non-dimensional'
+    N_poloidal_starting        
+           Size:       8x1
+           Dimensions: nrays
+           Datatype:   double
+           Attributes:
+                       long_name = 'N_poloidal_starting'
+                       units     = 'non-dimensional'
+    parallel_cur_total         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total parallel current'
+                       units     = 'A'
+    toroidal_cur_total         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total toroidal current'
+                       units     = 'A'
+    poloidal_cur_total         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total poloidal current'
+                       units     = 'A'
+    power_inj_total            
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total injected power'
+                       units     = 'erg/sec'
+    power_total                
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total absorbed power'
+                       units     = 'erg/sec'
+    powtot_e                   
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total power to electrons'
+                       units     = 'erg/sec'
+    powtot_i                   
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total power to ions'
+                       units     = 'erg/sec'
+    powtot_cl                  
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Collisional power absorbed'
+                       units     = 'erg/sec'
+    powtot_s                   
+           Size:       6x1
+           Dimensions: nbulkm
+           Datatype:   double
+           Attributes:
+                       long_name = 'Power to individual ion s'
+                       units     = 'erg/sec'
+    NR                         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of small radius points'
+    voltot                     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total volume in last closed flux surface'
+                       units     = 'cm^3'
+    areatot                    
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Total cross-sectional area of LCFS'
+                       units     = 'cm^2'
+    pollentot                  
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Poloidal length of LCFS'
+                       units     = 'cm'
+    torftot                    
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Toroidal flux through LCFS'
+                       units     = 'Tesla*m^2'
+    indexrho                   
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Radial coord type: 2 gives sqrt(tor flx)'
+    psifactr                   
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Reduces Psi-Value of LCFS'
+                       units     = 'Should be .le.1'
+    binvol                     
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'Volumes of radial bins'
+                       units     = 'cm^3'
+    binarea                    
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'Areas of radial bins'
+                       units     = 'cm^2'
+    pollen                     
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'Poloidal lengths of radial bins'
+                       units     = 'cm'
+    rho_bin                    
+           Size:       201x1
+           Dimensions: nrho
+           Datatype:   double
+           Attributes:
+                       long_name = 'normalized small radius bin boundaries'
+    rho_bin_center             
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'normalized small radius bin centers'
+    densprof                   
+           Size:       201x7
+           Dimensions: nrho,nbulk
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma density at bin boundaries, e and ions'
+                       units     = 'particles/cm^3'
+    temprof                    
+           Size:       201x7
+           Dimensions: nrho,nbulk
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma temperatures at bin boundaries, e and ions'
+                       units     = 'keV'
+    zefprof                    
+           Size:       201x1
+           Dimensions: nrho
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma Zeff at bin boundaries, e and ions'
+                       units     = 'unitless'
+    spower                     
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'power per bin profile'
+                       units     = 'erg/sec'
+    w_r_densprof_nc            
+           Size:       201x1
+           Dimensions: nrho
+           Datatype:   double
+           Attributes:
+                       long_name = 'major radius r mesh for plasma profiles'
+                       units     = 'm '
+    w_dens_vs_r_nc             
+           Size:       201x7
+           Dimensions: nrho,nbulk
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma density at bin bndries, e and ions vs major radius'
+                       units     = 'particles/m^3'
+    w_temp_vs_r_nc             
+           Size:       201x7
+           Dimensions: nrho,nbulk
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma temperatures at bin bndries, e and ions vs major radius'
+                       units     = 'keV'
+    w_zeff_vs_r_nc             
+           Size:       201x1
+           Dimensions: nrho
+           Datatype:   double
+           Attributes:
+                       long_name = 'plasma Zeff at bin bndries vs major radius'
+                       units     = 'unitless'
+    GA_tor_cur_total           
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'GA memo total toroidal current'
+                       units     = 'A'
+    s_cur_den_parallel         
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'averaged parallel current density profile'
+                       units     = 'A/cm**2'
+    s_cur_den_onetwo           
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'ONETWO current <j.B>/B_0 density profile'
+                       units     = 'A/cm**2'
+    s_cur_den_toroidal         
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'toroidal current <j_par>f<1/r**2>/(<B><1/r>) density profile'
+                       units     = 'A/cm**2'
+    s_cur_den_poloidal         
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'poloidal current <j_par>B_pol(theta_pol=0)/<B> density profile'
+                       units     = 'A/cm**2'
+    powden                     
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name = 'power density profile'
+                       units     = 'erg/(cm**3*sec)'
+    powden_e                   
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'power density profile to electrons, bin centered'
+                       long_name1 = 'From wave-particle damping'
+                       units      = 'erg/(cm**3*sec)'
+    powden_cl                  
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'power density profile to electrons, bin centered'
+                       long_name1 = 'From collisional damping'
+                       units      = 'erg/(cm**3*sec)'
+    powden_i                   
+           Size:       200x1
+           Dimensions: nrhom
+           Datatype:   double
+           Attributes:
+                       long_name  = 'power density profile to ions, bin centered'
+                       long_name1 = 'From wave-particle damping'
+                       units      = 'erg/(cm**3*sec)'
+    powden_s                   
+           Size:       200x6
+           Dimensions: nrhom,nbulkm
+           Datatype:   double
+           Attributes:
+                       long_name = 'power density profile to individual ion species, bin cent'
+                       units     = 'erg/(cm**3*sec)'
+    cweps11                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps11'
+    cweps12                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps12'
+    cweps13                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps13'
+    cweps21                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps21'
+    cweps22                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps22'
+    cweps23                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps23'
+    cweps31                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps31'
+    cweps32                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps32'
+    cweps33                    
+           Size:       284x8x2
+           Dimensions: neltmax,nrays,two
+           Datatype:   double
+           Attributes:
+                       long_name = 'Complex eps33'
+    nfreq                      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'The number of the emission frequencies'
+    iray_status_nc             
+           Size:       8x1
+           Dimensions: nrays,nfreq
+           Datatype:   int32
+           Attributes:
+                       long_name   = 'Status code giving the reason each ray stops          '
+                       long_name1  = '=-1 bad initial condition;                            '
+                       long_name2  = ' =1  t.gt.poldist_mx;                                 '
+                       long_name3  = ' =2 in prep3d delpwr(is).lt.delpwrmn*delpwr(1)        '
+                       long_name4  = ' =3  irefl.ge.ireflm;                                 '
+                       long_name5  = ' =4  ray is at tor limiter bndry,  max_limiters.ge.1; '
+                       long_name6  = ' =5  nstep_rk.gt.maxsteps_rk;                         '
+                       long_name7  = ' =6  nmode.gt.cnmax, cnmax set in output.f cnmax=10000'
+                       long_name8  = ' =7  for ((id.eq.1,2).and.(uh.gt.1.d0).and.           '
+                       long_name9  = ' ((uh-1.d0).lt.del_uh)).and.(cnper.gt.cnper_max_ebw)).'
+                       long_name10 = '  The ray is close to upper hybrid resonance.         '
+                       long_name11 = '  It can be Xmode to close to the UH resonance.       '
+                       long_name12 = ' =8  if ((vgrmods.gt.1.1).and. ((id.ne.10).and.       '
+                       long_name13 = '(id.ne.12).and.(id.ne.13))) and if (id.eq.14);      lo'
+                       long_name14 = ' =9  D/(N|gradD|) > toll_hamilt;                      '
+                       long_name15 = ' =10 in prep3d.f argexp>0;                            '
+                       long_name16 = ' =11 in prep3d fluxn(is).lt.0.0;                      '
+                       long_name17 = ' =12 nrayelt=nrelt;                                   '
+                       long_name18 = ' =13 in RK drkgs2 small time step h.lt.1.d-11         '
+                       long_name19 = '  can not get the given accuracy prmt4                '
+                       long_name20 = '  =14, ray started with zero power (lt.1e-100)        '
+>> 
