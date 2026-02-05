@@ -61,7 +61,7 @@ function ImD = ImDLandauSlowdown(w, ktot, P, k_para, ifautomatic)
         M = @(uyz, theta) exp(-((up2(uyz, theta)./u2(uyz) - L0)./dL).^2)./(u(uyz).^3 + uc.^3)...
             .*(3.*u(uyz).*zeta./(u(uyz).^3 + uc.^3) - 4.*(up2(uyz, theta)./u2(uyz) - L0)./(dL.^2)...
             .*(up2(uyz, theta).*zeta./(u2(uyz).^2) - kup(uyz, theta)./u2(uyz))).*uyz;
-        ImD = integral2(M, 0, sqrt(1 - zeta.^2), 0, 2*pi, 'AbsTol', 0);
+        ImD = integral2(M, 0, sqrt(1 - zeta.^2), 0, 2*pi, 'AbsTol', 1e-6);
         ImD = Fac.*ImD;
     end
 end

@@ -64,7 +64,7 @@ function ImD = ImDESSlowdown(w, k_para, k_perp, B, P, ifautomatic)
             for n = 1:numel(D)
                 % Calculate the intrgral automatically
                 df = @(x) x.*sqrt(x.^2+un_para(n).^2)./((uc3 + (x.^2+un_para(n).^2).^1.5).^2).*besselj(IndN(n), rhoperp.*x).^2;
-                D(n) = integral(df, 0, up_max(n), 'AbsTol', 0);
+                D(n) = integral(df, 0, up_max(n), 'AbsTol', 1e-6);
             end
         else
             for n = 1:numel(D)
@@ -82,7 +82,7 @@ function ImD = ImDESSlowdown(w, k_para, k_perp, B, P, ifautomatic)
                     D(n) = D2;
                 else
                     df = @(x) x.*sqrt(x.^2+un_para(n).^2)./((uc3 + (x.^2+un_para(n).^2).^1.5).^2).*besselj(IndN(n), rhoperp.*x).^2;
-                    D(n) = integral(df, 0, up_max(n), 'AbsTol', 0);
+                    D(n) = integral(df, 0, up_max(n), 'AbsTol', 1e-6);
                 end
             end
         end
@@ -95,10 +95,10 @@ function ImD = ImDESSlowdown(w, k_para, k_perp, B, P, ifautomatic)
                 % Calculate the intrgral automatically
                 df = @(x) x.*sqrt(x.^2+un_para(n).^2)./((uc3 + (x.^2+un_para(n).^2).^1.5).^2).*...
                     exp(-((x.^2./(x.^2+un_para(n).^2) - P.Lambda0)./P.DLambda).^2).*besselj(IndN(n), rhoperp.*x).^2;
-                D(n) = integral(df, 0, up_max(n), 'AbsTol', 0);
+                D(n) = integral(df, 0, up_max(n), 'AbsTol', 1e-6);
                 ef = @(x) x.*(x.^2./(x.^2+un_para(n).^2) - P.Lambda0)./(P.DLambda.^2)./(uc3 + (x.^2+un_para(n).^2).^1.5)./((x.^2+un_para(n).^2).^2).*...
                     un_para(n).*(-IndN(n).*un_para(n) + rhopara.*x.^2).*exp(-((x.^2./(x.^2+un_para(n).^2) - P.Lambda0)./P.DLambda).^2).*besselj(IndN(n), rhoperp.*x).^2;
-                E(n) = integral(ef, 0, up_max(n), 'AbsTol', 0);
+                E(n) = integral(ef, 0, up_max(n), 'AbsTol', 1e-6);
             end
         else
             for n = 1:numel(D)
@@ -119,7 +119,7 @@ function ImD = ImDESSlowdown(w, k_para, k_perp, B, P, ifautomatic)
                 else
                     df = @(x) x.*sqrt(x.^2+un_para(n).^2)./((P.uc.^3 + (x.^2+un_para(n).^2).^1.5).^2).*...
                         exp(-((x.^2./(x.^2+un_para(n).^2) - P.Lambda0)./P.DLambda).^2).*besselj(IndN(n), rhoperp.*x).^2;
-                    D(n) = integral(df, 0, up_max(n), 'AbsTol', 0);
+                    D(n) = integral(df, 0, up_max(n), 'AbsTol', 1e-6);
                 end
                 % Calculate E
                 z1 = x1.*(x1.^2./(x1.^2+un_para(n).^2) - P.Lambda0)./(P.DLambda.^2)./(uc3 + (x1.^2+un_para(n).^2).^1.5)./((x1.^2 + un_para(n).^2).^2).*...
@@ -133,7 +133,7 @@ function ImD = ImDESSlowdown(w, k_para, k_perp, B, P, ifautomatic)
                 else
                     ef = @(x) x.*(x.^2./(x.^2+un_para(n).^2) - P.Lambda0)./(P.DLambda.^2)./(uc3 + (x.^2+un_para(n).^2).^1.5)./((x.^2 + un_para(n).^2).^2).*...
                         un_para(n).*(-IndN(n).*un_para(n) + rhopara.*x.^2).*exp(-((x.^2./(x.^2+un_para(n).^2) - P.Lambda0)./P.DLambda).^2).*besselj(IndN(n), rhoperp.*x).^2;
-                    E(n) = integral(ef, 0, up_max(n), 'AbsTol', 0);
+                    E(n) = integral(ef, 0, up_max(n), 'AbsTol', 1e-6);
                 end
             end
         end
