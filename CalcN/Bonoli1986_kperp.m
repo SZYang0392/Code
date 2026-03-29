@@ -57,6 +57,10 @@ function k_perp = Bonoli1986_kperp(w, k_para, B, Pe, Pi)
         P6 = P6 - 1.5 * Pi(k).wp2 .* Pi(k).vt2 ./w2 / c2;
     end
     % ================ Solution ================ %
-    N_perp2 = roots([P6, P4, P2, P0]);
+    coeffs = [P6(:), P4(:), P2(:), P0(:)];
+    N_perp2 = nan(3, numel(P6));
+    for j = 1:numel(P6)
+        N_perp2(:, j) = roots(coeffs(j, :));
+    end
     k_perp = sqrt(N_perp2)*w/c;
 end
