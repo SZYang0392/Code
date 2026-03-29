@@ -135,6 +135,10 @@ function data = load(filename, i_salphal)
     end
     if isfield(data, 'powden_s')
         data.powden_s = data.powden_s/10;
+        temp = zeros(numel(data.rho_bin), size(data.powden_s, 2));
+        temp(1:numel(data.powden_s)) = data.powden_s(:);
+        data.powden_s = temp(1:end-1, :);
+        data.powden_s = [data.powden_e, data.powden_s];
     end
 
     % Calculate damping per species
