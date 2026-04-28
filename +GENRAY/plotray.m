@@ -1,7 +1,7 @@
-function F = plotray(gen, G, rayf, Opts)
+function F = plotray(genrayout, Gfile, rayf, Opts)
     arguments
-        gen
-        G = false
+        genrayout
+        Gfile = false
         rayf = 'delpwr'
         Opts.F
         Opts.Ind
@@ -34,16 +34,16 @@ function F = plotray(gen, G, rayf, Opts)
 
     % Select which ray to be plotted
     if ~isfield(Opts, 'Ind')
-        Opts.Ind = 1:size(gen.(rayf), 2);
+        Opts.Ind = 1:size(genrayout.(rayf), 2);
     end
 
     % Plot rays
-    Rayf = gen.(rayf)(:, Opts.Ind, Opts.layer);
+    Rayf = genrayout.(rayf)(:, Opts.Ind, Opts.layer);
     if Opts.Normalize
         Rayf = Rayf./Rayf(1, :);
     end
     hold on;
-    patch(gen.wr(:, Opts.Ind), gen.wz(:, Opts.Ind), Rayf, 'DisplayName', 'Rays', ...
+    patch(genrayout.wr(:, Opts.Ind), genrayout.wz(:, Opts.Ind), Rayf, 'DisplayName', 'Rays', ...
     'edgecolor', 'flat', 'facecolor', 'none', 'MarkerFaceColor', 'flat');
     % Set figure
     axis equal;
@@ -57,18 +57,18 @@ function F = plotray(gen, G, rayf, Opts)
     C.Label.Interpreter = 'latex';
 
     % Plot LCFS, magnetic axis and limiter
-    if ~isa(G, 'logical')
+    if ~isa(Gfile, 'logical')
         hold on;
-        plot(G.Raxis, G.Zaxis, 'ko', 'MarkerSize', 3, 'MarkerFaceColor', 'k', 'DisplayName', 'Axis');
-        plot(G.Rbound, G.Zbound, 'r-', 'LineWidth', 1, 'DisplayName', 'LCFS');
-        plot(G.Rlimiter, G.Zlimiter, 'k-', 'LineWidth', 1, 'DisplayName', 'Limiter');
+        plot(Gfile.Raxis, Gfile.Zaxis, 'ko', 'MarkerSize', 3, 'MarkerFaceColor', 'k', 'DisplayName', 'Axis');
+        plot(Gfile.Rbound, Gfile.Zbound, 'r-', 'LineWidth', 1, 'DisplayName', 'LCFS');
+        plot(Gfile.Rlimiter, Gfile.Zlimiter, 'k-', 'LineWidth', 1, 'DisplayName', 'Limiter');
         if Opts.Setlim
-            Rmin = min(G.Rlimiter);
-            Rmax = max(G.Rlimiter);
+            Rmin = min(Gfile.Rlimiter);
+            Rmax = max(Gfile.Rlimiter);
             dR = 0.15*(Rmax - Rmin);
             xlim([Rmin - dR, Rmax + dR]);
-            Zmin = min(G.Zlimiter);
-            Zmax = max(G.Zlimiter);
+            Zmin = min(Gfile.Zlimiter);
+            Zmax = max(Gfile.Zlimiter);
             dZ = 0.1*(Zmax - Zmin);
             ylim([Zmin - dZ, Zmax + dZ]);
         end
@@ -77,7 +77,7 @@ function F = plotray(gen, G, rayf, Opts)
     % Plot initial points
     if Opts.Plotinit
         hold on;
-        plot(gen.wr(1, Opts.Ind), gen.wz(1, Opts.Ind), 'bo', 'MarkerSize', 2, 'MarkerFaceColor', 'b', ....
+        plot(genrayout.wr(1, Opts.Ind), genrayout.wz(1, Opts.Ind), 'bo', 'MarkerSize', 2, 'MarkerFaceColor', 'b', ....
             'DisplayName', 'Launch');
     end
 

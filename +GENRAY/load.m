@@ -13,7 +13,7 @@ function data = load(filename, i_salphal)
     % Clear ineffective data
     Nray = numel(data.nrayelt);
     for k = 1:Nray
-        Nrayelt = data.nrayelt(k) + 1;
+        Nrayelt = data.nrayelt(k);
         if Nrayelt >= size(data.ws, 1)
             continue;
         end
@@ -140,6 +140,28 @@ function data = load(filename, i_salphal)
         data.powden_s = temp(1:end-1, :);
         data.powden_s = [data.powden_e, data.powden_s];
     end
+
+    % Caculate nrho, mpol, ntol, krho, kpol, ktol
+    data.wnrho = nan(size(data.spsi));
+    data.mpol = nan(size(data.spsi));
+    data.ntol = nan(size(data.spsi));
+    data.krho = nan(size(data.spsi));
+    data.kpol = nan(size(data.spsi));
+    data.ktol = nan(size(data.spsi));
+    w = 2*pi*data.freqcy;
+    kr = data.wn_r*(w/c);
+    kz = data.wn_z*(w/c);
+    kphi = data.wn_phi*(w/c);
+    bpol = sqrt(data.sb_r.^2 + data.sb_z.^2);
+    br_hat = data.sb_r./bpol;
+    bz_hat = data.sb_z./bpol;
+    data.krho = kr.*bz_hat - kz.*br_hat;
+    data.kpol = kr.*br_hat + kz.*bz_hat;
+    data.ktol = kphi;
+    rhor = (0.5/pi) * spline(data.rho_bin_center, data.pollen, data.spsi);
+    data.wnrho = data.krho*c./w;
+    data.mpol = rhor.*data.kpol;
+    data.ntol = data.wr.*data.ktol;
 
     % Calculate damping per species
     if isfield(data, 'salphas')

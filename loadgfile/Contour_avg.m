@@ -37,7 +37,7 @@ function avg_vals = Contour_avg(R, Z, rho, F, rho0_list)
             dl = sqrt(dR.^2 + dZ.^2);
             
             % Interpolate the 'F' field onto the contour coordinates
-            F_c = interp2(R, Z, F, R_c, Z_c, 'spline');
+            F_c = interp2(R, Z, F, R_c, Z_c, 'linear');
             
             % Average the interpolated F values at the midpoints of each segment
             F_seg = (F_c(1:end-1) + F_c(2:end)) / 2;

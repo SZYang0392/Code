@@ -1,6 +1,6 @@
-function F = plotrayphase(gen, rayf, Opts)
+function F = plotrayphase(genrayout, rayf, Opts)
     arguments
-        gen
+        genrayout
         rayf = 'delpwr'
         Opts.F
         Opts.Ind
@@ -33,22 +33,22 @@ function F = plotrayphase(gen, rayf, Opts)
 
     % Select which ray to be plotted
     if ~isfield(Opts, 'Ind')
-        Opts.Ind = 1:size(gen.(rayf), 2);
+        Opts.Ind = 1:size(genrayout.(rayf), 2);
     end
 
     % Plot rays
-    Rayf = gen.(rayf)(:, Opts.Ind, Opts.layer);
+    Rayf = genrayout.(rayf)(:, Opts.Ind, Opts.layer);
     if Opts.Normalize
         Rayf = Rayf./Rayf(1, :);
     end
     hold on;
-    if all(gen.wnpar(1, :) <= 0, 'all')
-        gen.wnpar = -gen.wnpar;
+    if all(genrayout.wnpar(1, :) <= 0, 'all')
+        genrayout.wnpar = -genrayout.wnpar;
         Ylabel = '$-N_{\parallel}$';
     else
         Ylabel = '$N_{\parallel}$';
     end
-    patch(gen.spsi(:, Opts.Ind), gen.wnpar(:, Opts.Ind), Rayf, 'DisplayName', 'Rays', ...
+    patch(genrayout.spsi(:, Opts.Ind), genrayout.wnpar(:, Opts.Ind), Rayf, 'DisplayName', 'Rays', ...
     'edgecolor', 'flat', 'facecolor', 'none', 'MarkerFaceColor', 'flat');
     % Set figure
     xlabel('$\rho$', 'Interpreter', 'latex');
@@ -61,8 +61,8 @@ function F = plotrayphase(gen, rayf, Opts)
     C.Label.Interpreter = 'latex';
     % Set xlim
     if Opts.Setlim
-        Xmin = min(gen.spsi(:, Opts.Ind), [], 'all');
-        Xmax = max(gen.spsi(:, Opts.Ind), [], 'all');
+        Xmin = min(genrayout.spsi(:, Opts.Ind), [], 'all');
+        Xmax = max(genrayout.spsi(:, Opts.Ind), [], 'all');
         dX = (Xmax - Xmin)*0.1;
         xlim([Xmin - 2*dX, Xmax + 0.2*dX]);
     end
@@ -70,7 +70,7 @@ function F = plotrayphase(gen, rayf, Opts)
     % Plot initial points
     if Opts.Plotinit
         hold on;
-        plot(gen.spsi(1, Opts.Ind), gen.wnpar(1, Opts.Ind), 'co', 'MarkerSize', 5, ...
+        plot(genrayout.spsi(1, Opts.Ind), genrayout.wnpar(1, Opts.Ind), 'co', 'MarkerSize', 5, ...
             'MarkerFaceColor', 'c', 'DisplayName','Launch');
     end
 
