@@ -163,6 +163,11 @@ function data = load(filename, i_salphal)
     data.mpol = rhor.*data.kpol;
     data.ntol = data.wr.*data.ktol;
 
+    % Calculate the group velocity vgrho, vgpol, vgtol
+    data.vgrho = data.vgr_r.*bz_hat - data.vgr_z.*br_hat;
+    data.vgpol = data.vgr_r.*br_hat + data.vgr_z.*bz_hat;
+    data.vgtol = data.vgr_phi;
+
     % Calculate damping per species
     if isfield(data, 'salphas')
         % Total damping rate(ki)

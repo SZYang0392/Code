@@ -1,4 +1,4 @@
-function D = DEMCold(w, k_para, k_perp, B, Ps)
+function varargout = DEMCold(w, k_para, k_perp, B, Ps)
 % P : struct with elements q, m, n0.
 % w, k_para, B, Ps(*).n0 can be arrays (for safety, of the same size).
     %--------------Determine array size--------------%
@@ -41,7 +41,10 @@ function D = DEMCold(w, k_para, k_perp, B, Ps)
     P0 = P.*((N_para.^2 - S).^2 - D.^2);
 
     %====================Calculate D====================%
-    D = P4.*N_perp.^4 + P2.*N_perp.^2 + P0;
+    Dispersion = P4.*N_perp.^4 + P2.*N_perp.^2 + P0;
+    varargout{1} = Dispersion;
+    varargout{2} = [P0, P2, P4];
+    varargout{3} = [S, D, P];
 end
 
 function [Sd, Dd, Pd] = KhiEMCold(P, B, w)
