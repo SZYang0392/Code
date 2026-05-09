@@ -4,6 +4,7 @@ function k_acc = Kacc(w, B, Ps)
 % N_para^2     >     S + 2D*sqrt(S / -P) - D^2/P     =     (sqrt(S) + D / sqrt(-P))^2
 % P : struct with fields q, m, n0.
 % w, k_para, B, Ps(*).n0 can be arrays of the same size.
+    % addpath('../Dispersion');
     %--------------Refractive Index--------------%
     c = 299792458;
     %--------------Calculate S, D, P--------------%
@@ -22,15 +23,4 @@ function k_acc = Kacc(w, B, Ps)
     %--------------Calculate k_para at cut off--------------%
     N_acc = abs(sqrt(S) + D./sqrt(-P));
     k_acc = N_acc.*w./c;
-end
-
-function [Sd, Dd, Pd] = KhiEMCold(P, B, w)
-%P = [m; n0; q]
-    % epsilon_0 = 8.854187817e-12;
-    e = 1.602176565e-19;
-    wc = P.q*e.*B./P.m;
-    wp2 = 2.899158904791503e-27*P.q.^2.*P.n0./P.m;
-    Sd = - wp2./(w.^2 - wc.^2);
-    Dd = - Sd.*wc./w;
-    Pd = - wp2./w^2;
 end

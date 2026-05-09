@@ -1,6 +1,7 @@
 function D = DESCold(w, k_para, k_perp, B, Ps)
 % P : struct with elements q, m, n0.
 % w, k_para, B, Ps(*).n0 can be arrays (for safety, of the same size).
+    % addpath('../Dispersion');
     c = 299792458;
     %--------------Determine array size--------------%
     Size = size(w);
@@ -27,7 +28,7 @@ function D = DESCold(w, k_para, k_perp, B, Ps)
     S = zeros(Size);
     P = zeros(Size);
     for k = 1 : numel(Ps)
-        [Sds{k}, Pds{k}] = Khi(Ps(k), B, w);
+        [Sds{k}, Pds{k}] = KhiESCold(Ps(k), B, w);
         S = S + Sds{k};
         P = P + Pds{k};
     end
@@ -35,14 +36,4 @@ function D = DESCold(w, k_para, k_perp, B, Ps)
     P = P + 1;
     %--------------Calculate Dispersion--------------%
     D = (c./w).^2.*(S.*k_perp.^2 + P.*k_para.^2);
-end
-
-function [S1, P1] = Khi(P, B, w)
-%P = [m; n0; q]
-    % epsilon_0 = 8.854187817e-12;
-    e = 1.602176565e-19;
-    wc = P.q*e.*B./P.m;
-    wp2 = 2.899158904791503e-27*P.q.^2.*P.n0./P.m;
-    S1 = - wp2./(w.^2 - wc.^2);
-    P1 = - wp2./w.^2;
 end

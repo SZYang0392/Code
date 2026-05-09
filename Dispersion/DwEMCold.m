@@ -34,7 +34,7 @@ function varargout = DwEMCold(w, k_para, k_perp, B, Ps)
     DwD = zeros(Size);
     DwP = zeros(Size);
     for k = 1 : numel(Ps)
-        [Sds{k}, Dds{k}, Pds{k}, DwSds{k}, DwDds{k}, DwPds{k}] = KhiEMCold(Ps(k), B, w);
+        [Sds{k}, Dds{k}, Pds{k}, DwSds{k}, DwDds{k}, DwPds{k}] = KhiEMCold_dw(Ps(k), B, w);
         S = S + Sds{k};
         D = D + Dds{k};
         P = P + Pds{k};
@@ -61,7 +61,7 @@ function varargout = DwEMCold(w, k_para, k_perp, B, Ps)
     varargout{2} = DwD;
 end
 
-function [Sd, Dd, Pd, DwSd, DwDd, DwPd] = KhiEMCold(P, B, w)
+function [Sd, Dd, Pd, DwSd, DwDd, DwPd] = KhiEMCold_dw(P, B, w)
 %P = [m; n0; q]
     % epsilon_0 = 8.854187817e-12;
     e = 1.602176565e-19;
