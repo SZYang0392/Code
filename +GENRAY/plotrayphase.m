@@ -1,7 +1,8 @@
-function F = plotrayphase(genrayout, rayf, Opts)
+function F = plotrayphase(genrayout, rayf, rayy, Opts)
     arguments
         genrayout
         rayf = 'delpwr'
+        rayy = 'wnpar'
         Opts.F
         Opts.Ind
         Opts.layer = 1
@@ -48,7 +49,7 @@ function F = plotrayphase(genrayout, rayf, Opts)
     else
         Ylabel = '$N_{\parallel}$';
     end
-    patch(genrayout.spsi(:, Opts.Ind), genrayout.wnpar(:, Opts.Ind), Rayf, 'DisplayName', 'Rays', ...
+    patch(genrayout.spsi(:, Opts.Ind), genrayout.(rayy)(:, Opts.Ind), Rayf, 'DisplayName', 'Rays', ...
     'edgecolor', 'flat', 'facecolor', 'none', 'MarkerFaceColor', 'flat');
     % Set figure
     xlabel('$\rho$', 'Interpreter', 'latex');
@@ -70,7 +71,7 @@ function F = plotrayphase(genrayout, rayf, Opts)
     % Plot initial points
     if Opts.Plotinit
         hold on;
-        plot(genrayout.spsi(1, Opts.Ind), genrayout.wnpar(1, Opts.Ind), 'co', 'MarkerSize', 5, ...
+        plot(genrayout.spsi(1, Opts.Ind), genrayout.(rayy)(1, Opts.Ind), 'co', 'MarkerSize', 5, ...
             'MarkerFaceColor', 'c', 'DisplayName','Launch');
     end
 

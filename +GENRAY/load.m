@@ -215,4 +215,27 @@ function data = load(filename, i_salphal)
 
     % Classify rays with Npar and launch position
     data = GENRAY.rayclass(data);
+
+    % Check the reflection points
+    Iref = nan(max(data.nrayelt), data.nray);
+    maxNref = 0;
+    for j = 1:data.nray
+        if data.nrayelt(j) <= 3
+            continue;
+        end
+        IndNrayelt = (1:data.nrayelt(j)).';
+        IndMinn = data.spsi(2:data.nrayelt(j)-1, j) <= data.spsi(1:data.nrayelt(j)-2, j);
+        IndMinp = data.spsi(2:data.nrayelt(j)-1, j) <= data.spsi(3:data.nrayelt(j), j);
+        IndMin = [false; IndMinn & IndMinp; false];
+        Imin = IndNrayelt(IndMin);
+        IndMaxn = data.spsi(2:data.nrayelt(j)-1, j) >= data.spsi(1:data.nrayelt(j)-2, j);
+        IndMaxp = data.spsi(2:data.nrayelt(j)-1, j) >= data.spsi(3:data.nrayelt(j), j);
+        IndMax = [false; IndMaxn & IndMaxp; false];
+        Imax = IndNrayelt(IndMax);
+        Iref_oneray = sort([1; Imin; Imax; data.nrayelt(j)]);
+        Nref = numel(Iref_oneray);
+        Iref(1:Nref, j) = Iref_oneray;
+        maxNref = max([maxNref, Nref]);
+    end
+    data.Iref = Iref(1:maxNref, :);
 end
