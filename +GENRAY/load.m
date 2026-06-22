@@ -14,7 +14,7 @@ function data = load(filename, i_salphal)
     Nray = numel(data.nrayelt);
     for k = 1:Nray
         Nrayelt = data.nrayelt(k);
-        if Nrayelt >= size(data.ws, 1)
+        if (Nrayelt >= size(data.ws, 1)) || (Nrayelt <= 0)
             continue;
         end
         data.ws(Nrayelt:end, k) = nan;
@@ -79,11 +79,15 @@ function data = load(filename, i_salphal)
     data.wz = data.wz/100;
     data.w_theta_pol = data.w_theta_pol*pi/180;
     data.delpwr = data.delpwr/1e7;
-    data.deposite = [(data.delpwr(1, :)-data.delpwr(2, :))/2; ...
-        (data.delpwr(1:end-2, :)-data.delpwr(3:end, :))/2; ...
-        (data.delpwr(end-1, :)-data.delpwr(end, :))/2];
-    % data.deposite = [zeros(1, data.nray); ...
-    %     (data.delpwr(1:end-2, :)-data.delpwr(3:end, :))/2; zeros(1, data.nray)];
+    if size(data.delpwr, 1) >= 3
+        data.deposite = [(data.delpwr(1, :)-data.delpwr(2, :))/2; ...
+            (data.delpwr(1:end-2, :)-data.delpwr(3:end, :))/2; ...
+            (data.delpwr(end-1, :)-data.delpwr(end, :))/2];
+        % data.deposite = [zeros(1, data.nray); ...
+        %     (data.delpwr(1:end-2, :)-data.delpwr(3:end, :))/2; zeros(1, data.nray)];
+    else
+        data.deposite = nan(size(data.delpwr));
+    end
     data.sdpwr = data.sdpwr*100;
     data.fluxn = data.fluxn/(2.99792458^2*1e11);
     data.sbtot = data.sbtot/1e4;
