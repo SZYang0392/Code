@@ -1,0 +1,1087 @@
+>> ncdisp('CFETR_NB_transport.nc')
+Source:
+           E:\SourceCode\CFETR_final_test\cql_NB_transport_new_narrowbeam_anglev_1_nubeam_tauloss_3\CFETR_NB_transport.nc
+Format:
+           classic
+Global Attributes:
+           title = 'Main netcdf output from CQL3D version: cql3d_git_210125.1'
+Dimensions:
+           xdim            = 500
+           ydim            = 120
+           xdimf           = 500
+           ydimf           = 120
+           rdim            = 48
+           r0dim           = 48
+           kzdim           = 131
+           kedim           = 3
+           kbdim           = 16
+           ngenadim        = 4
+           lrzadim         = 128
+           twodim          = 2
+           fourdim         = 4
+           fivedim         = 5
+           thirteendim     = 13
+           r00dim          = 49
+           zdim            = 128
+           nendim          = 20
+           nvdim           = 1
+           nen_npadim      = 60
+           nv_npadim       = 1
+           npaproc_dim     = 1
+           mrfnp1_dim      = 1
+           mrfnp3_dim      = 3
+           nmodsdim        = 155
+           ntavgdim        = 16
+           gen_species_dim = 1
+           species_dim     = 7
+           nt_deltadim     = 80
+           nr_deltadim     = 65
+           nz_deltadim     = 65
+           chardim         = 8
+           char64dim       = 64
+           impur_dim       = 1
+           tdim            = 502
+           tsavedim        = 1
+Variables:
+    version         
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'CQL3D version number'
+    mnemonic        
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Mnemonic run identifier'
+    ampfmod         
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Ampere-Faraday module switc'
+    urfmod          
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'URF module switch'
+    rdcmod          
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'RF Heating and CD from input diffusion coeffs'
+    frmod           
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'NBI module switch'
+    beamplse        
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Pulsed NBI switch'
+    transp          
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Radial transport module switch'
+    tavg            
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'except in netcdfshort=longer_f case'
+    f4d_out         
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Indicates output for 4D distn/ separate file'
+    netcdfshort     
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Indicates level of output of data to .nc files'
+    eqdskin         
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Name of input eqdsk, for eqsource=eqdsk'
+    ngen            
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of general species'
+    ntotal          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of species: gen+max'
+    kspeci          
+           Size:       8x2x7
+           Dimensions: chardim,twodim,species_dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Name of species and spec as general or maxwl'
+    bnumb           
+           Size:       7x1
+           Dimensions: species_dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'atomic number or each species'
+    fmass           
+           Size:       7x1
+           Dimensions: species_dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'mass of each species'
+                       units     = 'grams'
+    lrzmax          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of radial bins(=r0dim, .ge.lrz)'
+    radcoord        
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Radial coordinate is proportional to radcoord'
+    rya             
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Normalized radial mesh at bin centers'
+    Rp              
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Major radius of bin centers at outerboard'
+    Rm              
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Major radius of bin centers at innerboard'
+    rhomax          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Generalized plasma minor radius'
+                       units     = 'cms'
+    radmaj          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Nominal major radius'
+                       units     = 'cms'
+    rpmconz         
+           Size:       49x1
+           Dimensions: r00dim
+           Datatype:   double
+           Attributes:
+                       long_name1 = 'Major radius of bin boundaries on the outer'
+                       long_name2 = 'equatorial plane, starting at radmaj'
+                       units      = 'cms'
+    btor            
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Nominal tor mag fld at radmaj'
+                       units     = 'Gauss'
+    toteqd          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Tor equilibrium plasma current'
+                       units     = 'Amps'
+    rgeomp          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = '0.5*(max-min) of major radius'
+                       units     = 'cms'
+    r0geomp         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = '0.5*(max+min) of major radius'
+                       units     = 'cms'
+    rmag            
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Magnetic axis major radius'
+                       units     = 'cms'
+    zmag            
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Magnetic axis vertical position'
+                       units     = 'cms'
+    eqsym           
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Indicator for symmetrization'
+    zshift          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Vertical shift of equilibrium per eqsym'
+                       units     = 'cms'
+    eps0            
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Inv aspect ratio = rgeomp/r0geom'
+    elong           
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Elongation = zgeomp/rgeomp'
+    zgeomp          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Approx half-height to LCFS'
+                       units     = 'cms'
+    rgeom1          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Approx inner major radius to LCFS'
+                       units     = 'cms'
+    rgeom2          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Approx outer major radius to LCFS'
+                       units     = 'cms'
+    area            
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Cumulative area to bin centers'
+                       units     = 'cms^2'
+    darea           
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Incremental tor area of radial bins'
+                       units     = 'cms^2'
+    vol             
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Cumulative volume to bin centers'
+                       units     = 'cms^3'
+    dvol            
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Incremental volume to bin centers'
+                       units     = 'cms^3'
+    equilpsi        
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Poloidal flux function at bin centers'
+                       units     = 'cgs'
+    psivalm         
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Pol flux fctn at radial outer edge of each bin'
+                       units     = 'cgs'
+    dpsi            
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Incremental pol flux function at bin centers'
+                       units     = 'cgs'
+    psimag          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Pol flux function at magnetic axis'
+                       units     = 'cgs'
+    psilim          
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Pol flux function at plasma boundary'
+                       units     = 'cgs'
+    h_r             
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'H*rho ONETWO geometry factor'
+                       units     = 'cms'
+    qsafety         
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Safety factor at bin centers'
+    curreq          
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Toroidal current density from EQDSK'
+                       units     = 'Amps/cm**'
+    lrz             
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of FPd radial surface bins (=rdim)'
+    lrindx          
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Radial indices of FPd surfaces'
+    jx              
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'momentum-per-mass dimension (=xdim)'
+    x               
+           Size:       500x1
+           Dimensions: xdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'normalized momentum-per-mass'
+    enerkev         
+           Size:       500x1
+           Dimensions: xdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'energy=restmkev*(gamma(x(:))-1)'
+    uoc             
+           Size:       500x1
+           Dimensions: xdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'uoc=x(:)/cnorm=mom-per-mass/clight'
+    dx              
+           Size:       500x1
+           Dimensions: xdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'dx centered on x-mesh points'
+    cint2           
+           Size:       500x1
+           Dimensions: xdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'x**2*dx'
+    vnorm           
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'velocity (momentum-per-mass) norm'
+                       units     = 'cms/sec'
+    enorm           
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Energy normalization'
+                       units     = 'keV'
+    iy              
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'max Pitch angle dimension (=ydim)'
+    y               
+           Size:       120x48
+           Dimensions: ydim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'pitch angle'
+                       units     = 'radians'
+    dy              
+           Size:       120x48
+           Dimensions: ydim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'dy centered on y-mesh points'
+    cynt2           
+           Size:       120x48
+           Dimensions: ydim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = '2*pi*sin(y)*dy'
+    iy_             
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Pitch angle dimension at each r (le ydim)'
+    itl             
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'lower trapped-passing bndy index'
+    itu             
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'upper trapped-passing bndy index'
+    lz              
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'dimension of z-grid along B'
+    z               
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Distance along B'
+                       units     = 'cms'
+    dz              
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'dz centered on z-points'
+    solrz           
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Major radius of z pts'
+                       units     = 'cms'
+    solzz           
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Height of z pts'
+                       units     = 'cms'
+    pol             
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Poloidal angle, measured about mag axis'
+                       units     = 'radians'
+    bbpsi           
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'B(z)/B(z=0)'
+    imax            
+           Size:       128x48
+           Dimensions: zdim,r0dim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Max i s.t. part passes z(l)'
+    lmax            
+           Size:       120x48
+           Dimensions: ydim,r0dim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Max l s.t. i passes z(l)'
+    zboun           
+           Size:       120x48
+           Dimensions: ydim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Bounce point z-value'
+                       units     = 'cms'
+    zmaxpsi         
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Integral dz/bbp'
+                       units     = 'cms'
+    tau             
+           Size:       120x48
+           Dimensions: ydim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'tau_bounce * abs(speed)'
+                       units     = 'cms'
+    dtau            
+           Size:       120x128x48
+           Dimensions: ydim,zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'abs(speed)*dtau in dz(l)'
+                       units     = 'cms'
+    beampon         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'On time, per cylce, of beams'
+                       units     = 'secs'
+    beampoff        
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Off time, per cylce, of beamt'
+                       units     = 'secs'
+    tavg1           
+           Size:       16x1
+           Dimensions: ntavgdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'tavg case:  interval start time'
+                       units     = 'secs'
+    tavg2           
+           Size:       16x1
+           Dimensions: ntavgdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'tavg case:  interval stop time'
+                       units     = 'secs'
+    ndeltarho       
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Indicates first order-orbit shift options'
+    deltarho        
+           Size:       120x128x48
+           Dimensions: ydim,zdim,r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Orbit shift FROM BA FS vs theta0,z,rya,/|v|'
+                       units     = 'Norm'd to rhomax*|x*vnorm|'
+    r_delta         
+           Size:       65x1
+           Dimensions: nr_deltadim
+           Datatype:   double
+           Attributes:
+                       long_name = 'deltarz major radius mesh'
+                       units     = 'cms'
+    z_delta         
+           Size:       65x1
+           Dimensions: nz_deltadim
+           Datatype:   double
+           Attributes:
+                       long_name = 'deltarz vertical Z-mesh'
+                       units     = 'cms'
+    t_delta         
+           Size:       80x1
+           Dimensions: nt_deltadim
+           Datatype:   double
+           Attributes:
+                       long_name = 'deltarz local pitch angle mesh'
+                       units     = 'radians'
+    deltarz         
+           Size:       65x65x80
+           Dimensions: nr_deltadim,nz_deltadim,nt_deltadim
+           Datatype:   double
+           Attributes:
+                       long_name = 'I.e., normed to 1.*velocity (cms/sec) for most radcoord'
+                       units     = 'Norm'd to max of coord specified by radcoord*|x*vnorm|'
+    delta_bdb0      
+           Size:       65x65
+           Dimensions: nr_deltadim,nz_deltadim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Ratio of mag fld B at deltarz R,Z over B0 at midplanee'
+                       units     = 'unitless'
+    bthr            
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Equil Pol B field at theta_pol=pi/2'
+                       units     = 'Gauss'
+    btoru           
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Equil Tor B field at theta_pol=pi/2'
+                       units     = 'Gauss'
+    btor0           
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Tor mag fld strength at min |B| on flux surfaces'
+                       units     = 'Gauss'
+    bmidplne        
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Min mag fld |B| on a rad flux surfaces'
+                       units     = 'Gauss'
+    efflag          
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Indicates elecfld is toroidal or parallel'
+    softxry         
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'X-ray diagnostic is disabled,enabled, ncdf_all, or e-io'
+                       long_name1 = 'Data for 1st and last step is output'
+                       long_name2 = 'or, data for all steps for ncdf_all'
+    ipronn          
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'disabled, default, zero neutral density'
+                       long_name1 = 'spline, give neutral density profiles vs ryain'
+    gamafac         
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'energy dependent Coulomb log (default: disabled)'
+    pellet          
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'Pellet injection (default: disabled)'
+    imp_type        
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Impurity type for gamafac=hesslow'
+    nstates         
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of charge states for impurity'
+    fmass_imp       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'mass of impurity atom'
+                       units     = 'gram'
+    pellet_M0       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Initial mass of pellet'
+                       units     = 'gram'
+    pellet_Cablation
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Coefficient for ablation rate of pellet'
+    npa_diag        
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'NPA diagnostic is disabled,enabled, or ncdf_all'
+                       long_name1 = 'enabled: Data for 1st and last step is output'
+                       long_name2 = 'or, ncdf_all: data for all steps for ncdf_all'
+    sigmamod        
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'fusion rates diagnostic is disabled or enabled'
+                       long_name1 = 'Data for Rx 1:4 is output (see cqlinput_help)'
+    time            
+           Size:       502x1
+           Dimensions: tdim
+           Datatype:   double
+           Attributes:
+                       units = 'seconds'
+    bctshift        
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Time shift of bctime(), for restarts'
+                       units     = 'seconds'
+    bctimescal      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Scale factor of bctime(), stretching t'
+                       units     = 'seconds'
+    nsave           
+           Size:       1x1
+           Dimensions: tsavedim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Selected time steps, n.eq.nsave(1:nsavet)'
+                       units     = 'none'
+    den_e           
+           Size:       49x502
+           Dimensions: r00dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Electron density'
+                       units     = '/cm**3'
+    density         
+           Size:       7x48x502
+           Dimensions: species_dim,r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Densities, general and Maxwellians'
+                       units     = '/cm**3'
+    zeff            
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Zeff'
+    consn           
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Particle Conservation (ptcln(lr)-ptcln_t0(lr))/ptcln_t0(lr)'
+    bscurr_e_gen    
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Bootstrap current: Hirshman-Sauter Model. e_general (FPed)'
+    bscurr_e_maxw   
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Bootstrap current: Hirshman-Sauter Model. e_maxwellian'
+    bscurr_i_gen    
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Bootstrap current: Hirshman-Sauter Model. i_general (FPed)'
+    bscurr_i_maxw   
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Bootstrap current: Hirshman-Sauter Model. i_maxwellian'
+                       units     = 'A/cm**2'
+    currpar_starnue0
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Current based on sigma_banana (starnue=0)'
+                       units     = 'A/cm**2'
+    currpar_starnue 
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Current based on sigma_coll-neo (starnue>0)'
+                       units     = 'A/cm**2'
+    temp            
+           Size:       7x48x502
+           Dimensions: species_dim,r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       units = 'keV'
+    energy          
+           Size:       7x48x502
+           Dimensions: species_dim,r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'FSA Energy per particle'
+                       units     = 'keV'
+    wpar            
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'FSA Parallel Energy per particle'
+                       units     = 'keV'
+    wperp           
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'FSA Perpendicular Energy per particle'
+                       units     = 'keV'
+    elecfld         
+           Size:       49x502
+           Dimensions: r00dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Parallel Electric Field'
+                       units     = 'Volts/cm'
+    edreicer        
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'E_D Dreicer elec fld, e.g., Kulsrud PRL(1973)'
+                       units     = 'Volts/cm'
+    runaway_rate    
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Runaway rate, determined from e flux off grid'
+                       long_name1 = 'Runaway rate = 1/n * dn/dt / nu_Kulsrud'
+                       units      = 'Unitless'
+    denra           
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Runaway FSA density above ucrit'
+                       units      = '/cm**3'
+    curra           
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Runaway FSA parallel cur density above ucrit'
+                       units      = 'Amps/cm**2'
+    ucrit           
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Critical momentum per mass for runaway'
+                       units      = 'Normalized to vnorm'
+    knockon         
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name0 = 'Knockon src of high energy elec is en-/disabled'
+    sorpw_nbi       
+           Size:       4x128
+           Dimensions: ngenadim,lrzadim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'NBI+FUS Source Power Density'
+                       units      = 'Watts/cm^3'
+    sorpw_nbii      
+           Size:       4x128
+           Dimensions: ngenadim,lrzadim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Radially Integrated Power from NBI+FUS'
+                       units      = 'Watts'
+    curtor          
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Toroidal current density at min B pt'
+                       units     = 'Amps/cm**2'
+    ccurtor         
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name  = 'Area Integrated toroidal current'
+                       long_name1 = 'accounting for pol variation of tor cur'
+                       units      = 'Amps'
+    curpol          
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Poloidal current density at min B pt'
+                       units     = 'Amps/cm**2'
+    ccurpol         
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Integrated poloidal current density at min B'
+                       units     = 'Amps'
+    currm_i         
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Parallel elec current density at min B'
+                       long_name1 = 'Electrons, or first gen species if kelecg=0'
+                       units      = 'Amps/cm**2'
+    curr            
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'FSA Parallel current'
+                       long_name1 = 'i.e., Par curr per poloidal area between FSs'
+                       units      = 'Amps/cm**2'
+    energym         
+           Size:       48x502
+           Dimensions: rdim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Energy per particle, from f0 at midplane'
+                       units     = 'keV'
+    restp           
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = '<E_phi/R>/<j_phi/R>'
+                       units     = 'cgs, seconds'
+    restnp          
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'neoclassical resist <E_parall*B>/<j_parall*B>'
+                       units     = 'cgs, seconds'
+    sptzrp          
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Spitzer resistivity, incl Zeff dependence'
+                       long_name1 = 'Eq. 4.2-77 of ONETWO Manual, Eq. 5.66 H&H'
+                       units      = 'cgs, seconds'
+    rovsc           
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Connor resistivity over Spitzer'
+                       long_name1 = 'J.W. Connor et al, Nucl Fus 13, 211 (1973)'
+    rovsc_hi        
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Connor resistivity over Spitzer, hi eps'
+                       long_name1 = 'J.W. Connor et al, Nucl Fus 13, 211 (1973)'
+    zreskim         
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Hirshman/Sigmar/Kim resistivity over Spitzer'
+                       long_name1 = 'Reference is Hir/Sig (~1988) and Kim theses'
+    taueeh          
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Hinton-Hazeltine(Eq 5.4)-ONETWO-taue'
+    nuestar         
+           Size:       48x502
+           Dimensions: r0dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'ONETWO Manual, Eq. 4.2-30'
+    powers          
+           Size:       48x13x1x502
+           Dimensions: rdim,thirteendim,gen_species_dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0  = 'Component by component FSA powers to gen species k vs t'
+                       long_name1  = 'powers(*,1,k,t)=due to collisions with Maxw electrons'
+                       long_name2  = 'powers(*,2,k,t)=due to collisions with Maxw ions'
+                       long_name3  = 'powers(*,3,k,t)=Ohmic E.v'
+                       long_name4  = 'powers(*,4,k,t)=due to collisions with general spec'
+                       long_name5  = 'powers(*,5,k,t)=RF power'
+                       long_name6  = 'powers(*,6,k,t)=Ion particle source'
+                       long_name7  = 'powers(*,7,k,t)=losses by lossmode'
+                       long_name8  = 'powers(*,8,k,t)=losses by torloss'
+                       long_name9  = 'powers(*,9,k,t)=Runaway losses'
+                       long_name10 = 'powers(*,10,k,t)=Synchrotron radiation losses'
+                       long_name11 = 'powers(*,11,k,t)=Setting neg. j to zero'
+                       long_name12 = 'powers(*,12,k,t)=Phenomenological losses'
+                       long_name13 = 'powers(*,13,k,t)=Total'
+                       units       = 'Watts/cm**3'
+    powers_int      
+           Size:       13x1x502
+           Dimensions: thirteendim,gen_species_dim,tdim
+           Datatype:   double
+           Attributes:
+                       long_name0 = 'Vol int of FSA powers, respectively, to gen species k vs t'
+                       units      = 'Watts'
+    currv           
+           Size:       500x48
+           Dimensions: xdim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Specific Current Density j_u(u)'
+                       units     = 'Amps/cm^2 (int:0,1 over dx =current density)'
+                       comment   = 'Facility set up for single species'
+    pwrrf           
+           Size:       500x48
+           Dimensions: xdim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Specific RF Power Density pwrrf(u)'
+                       units     = 'W/cm^3 (int:0,1 over dx =RF power density)'
+                       comment   = 'Facility set up for single species'
+    favr_thet0      
+           Size:       500x48
+           Dimensions: xdim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Distr function at midplane averaged over pitch angle'
+                       units     = 'vnorm**3/(cm**3*(cm/sec)**3)'
+                       comment   = 'Facility set up for single species'
+>> 

@@ -1,0 +1,15 @@
+2026.9.30
+Add folder +CQL to load CQL3D output. See comments in .m files for 
+details.
+(1). data = CQL.load(filename) : load the main output of CQL3D, 
+    mnemonic.nc. 
+    -> NCDISP_CQLOUT : description of a sample mnemonic.nc.
+(2). data = CQL.loadflux(filename) : load the velocity space flux output, 
+    mnemonic_flux_N.nc, where N = 1,2,3,4...
+    -> NCDISP_CQLFLUX : description of a sample mnemonic_flux_N.nc.
+(3). data = CQL.load_difus_io(filename) : load the diffusion(Drr) and 
+    convection(Dr) coefficient output, mnemonic_difus_io.nc.
+    -> NCDISP_CQLDIFUSIO : description of a sample mnemonic_difus_io.nc.
+(4). data = CQL.loadfreya / data = CQL.loadfreya(filename) : load freya 
+    birth points output, freya_points.txt. The default filename is 
+    'freya_points.txt'.

@@ -1,0 +1,135 @@
+>> ncdisp('CFETR_NB_transport_difus_io.nc')
+Source:
+           E:\SourceCode\CFETR_final_test\cql_NB_transport_new_narrowbeam_anglev_1_nubeam_tauloss_1\CFETR_NB_transport_difus_io.nc
+Format:
+           classic
+Global Attributes:
+           title = 'NetCDF output/input of diffusion/pinch coeffs'
+Dimensions:
+           xdim                = 500
+           ydim                = 120
+           rdim                = 48
+           r0dim               = 48
+           drr_gen_species_dim = 1
+           char64dim           = 64
+Variables:
+    version 
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'CQL3D version number'
+    mnemonic
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Mnemonic run identifier'
+    lrzmax  
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of radial surfaces'
+    rya     
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Normalized radial mesh'
+    rpconz  
+           Size:       48x1
+           Dimensions: r0dim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Major radius at outside of flux surface'
+    rhomax  
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       units = 'cms'
+    lrz     
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of FPd radial surfaces'
+    lrindx  
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Radial indices of FPd surfaces'
+    jx      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'momentum-per-mass dimension'
+    x       
+           Size:       500x1
+           Dimensions: xdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'normalized momentum-per-mass'
+    vnorm   
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'velocity (momentum-per-mass) norm'
+                       units     = 'cms/sec'
+    enorm   
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Energy normalization'
+                       units     = 'keV'
+    iy      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Max pitch angle dimension'
+    y       
+           Size:       120x48
+           Dimensions: ydim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'pitch angle'
+                       units     = 'radians'
+    iy_     
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Pitch angle dimension at each radius'
+    itl     
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'lower trapped-passing bndy'
+    itu     
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'upper trapped-passing bndy'
+    d_rr    
+           Size:       120x500x48
+           Dimensions: ydim,xdim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'radial diffusion coefficien'
+                       units     = 'cm**2/se'
+    d_r     
+           Size:       120x500x48
+           Dimensions: ydim,xdim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'radial vel (pinch) term (pos, outwards'
+                       units     = 'cm/sec'
+>> 

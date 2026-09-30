@@ -1,0 +1,122 @@
+>> ncdisp('CFETR_NB_transport_flux_1.nc')
+Source:
+           E:\SourceCode\CFETR_final_test\cql_NB_transport_new_narrowbeam_anglev_1_nubeam_tauloss_1\CFETR_NB_transport_flux_1.nc
+Format:
+           classic
+Global Attributes:
+           title = 'collisional flux  '
+Dimensions:
+           jpxydim   = 101
+           ipxydim   = 51
+           rdim      = 48
+           gdim      = 1
+           chardim   = 8
+           char64dim = 64
+Variables:
+    mnemonic  
+           Size:       64x1
+           Dimensions: char64dim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Mnemonic run identifier'
+    grid_type 
+           Size:       8x1
+           Dimensions: chardim
+           Datatype:   char
+           Attributes:
+                       long_name = 'Indicates xpar-prp or x-theta gridl'
+    lrz       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of FPd radial surface bins'
+    n_netcdf  
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of radial surfaces for output (=rdim)'
+    ll_netcdf 
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Radial bin numbers where data is storedj'
+    jpxy      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of parallel momentum points (=jpxydim)'
+    ipxy      
+           Size:       1x1
+           Dimensions: 
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Number of perp momentum points (=ipxydim)'
+    xll       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Lower parallel momentum-per-mass'
+    xlu       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Upper parallel momentum-per-mass'
+    xpl       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Lower perp momentum-per-mass, normalized'
+    xpu       
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Upper perp momentum-per-mass, normalized'
+    xpar      
+           Size:       101x1
+           Dimensions: jpxydim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Normalized par momentum-per-mass'
+    xperp     
+           Size:       51x1
+           Dimensions: ipxydim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Normalized perp momentum-per-mass'
+    rhomax    
+           Size:       1x1
+           Dimensions: 
+           Datatype:   double
+           Attributes:
+                       long_name = 'Generalized plasma minor radius'
+                       units     = 'cms'
+    rya_netcdf
+           Size:       48x1
+           Dimensions: rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Normalized radial mesh at bin centers'
+    gamma_par 
+           Size:       101x51x48
+           Dimensions: jpxydim,ipxydim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Parallel momentum-space flux'
+                       units     = 'Normalized units'
+                       comment   = 'Facility set up only for single species'
+    gamma_perp
+           Size:       101x51x48
+           Dimensions: jpxydim,ipxydim,rdim
+           Datatype:   double
+           Attributes:
+                       long_name = 'Perpendicular momentum-space flux'
+                       units     = 'Normalized units'
+>> 
